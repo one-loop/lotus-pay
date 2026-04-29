@@ -1,0 +1,108 @@
+{
+  "usersById": {
+    "8885dd29-c4f6-4141-86f8-961f4f91fe85": {
+      "id": "8885dd29-c4f6-4141-86f8-961f4f91fe85",
+      "role": "business",
+      "email": "demo1@example.com",
+      "password": "123456",
+      "createdAt": "2026-04-29T09:13:34.754Z",
+      "onboarded": false,
+      "profile": {
+        "displayName": "New business",
+        "productCategory": "Services",
+        "country": "US"
+      },
+      "store": {
+        "storeName": "New business"
+      },
+      "currency": "USD",
+      "payouts": {
+        "connected": false
+      }
+    },
+    "fddee0a0-2a7d-43c4-8fb8-c49f7749a45a": {
+      "id": "fddee0a0-2a7d-43c4-8fb8-c49f7749a45a",
+      "role": "business",
+      "email": "demo2@example.com",
+      "password": "123456",
+      "createdAt": "2026-04-29T09:13:43.977Z",
+      "onboarded": true,
+      "profile": {
+        "displayName": "Demo Business",
+        "productCategory": "Services",
+        "country": "US",
+        "website": "https://example.com"
+      },
+      "store": {
+        "storeName": "Demo Business"
+      },
+      "currency": "USD",
+      "payouts": {
+        "connected": false
+      }
+    },
+    "f7bf7053-6a46-486e-b294-5803dec2bf7c": {
+      "id": "f7bf7053-6a46-486e-b294-5803dec2bf7c",
+      "role": "business",
+      "email": "test@gmail.com",
+      "password": "teest123",
+      "createdAt": "2026-04-29T09:21:08.591Z",
+      "onboarded": true,
+      "profile": {
+        "displayName": "Test business",
+        "productCategory": "E-commerce",
+        "country": "IN",
+        "website": "test"
+      },
+      "store": {
+        "storeName": "Test business"
+      },
+      "currency": "INR",
+      "payouts": {
+        "connected": false
+      }
+    }
+  },
+  "sessionsByToken": {
+    "ef3f189d-83d0-441e-87e9-6b0f65f25d2d": {
+      "token": "ef3f189d-83d0-441e-87e9-6b0f65f25d2d",
+      "userId": "8885dd29-c4f6-4141-86f8-961f4f91fe85",
+      "createdAt": "2026-04-29T09:13:34.754Z"
+    },
+    "0307311b-32fc-40bd-952f-a07a49c833f0": {
+      "token": "0307311b-32fc-40bd-952f-a07a49c833f0",
+      "userId": "fddee0a0-2a7d-43c4-8fb8-c49f7749a45a",
+      "createdAt": "2026-04-29T09:13:43.978Z"
+    }
+  },
+  "paymentLinksById": {
+    "d8a5749f-dc6a-4b03-b9de-9fddd7644cb1": {
+      "id": "d8a5749f-dc6a-4b03-b9de-9fddd7644cb1",
+      "ownerId": "fddee0a0-2a7d-43c4-8fb8-c49f7749a45a",
+      "title": "Consulting Session",
+      "description": "30 min consult",
+      "category": "Consulting",
+      "slug": "consulting-session-74d4d7",
+      "price": 99,
+      "currency": "USD",
+      "status": "active",
+      "createdAt": "2026-04-29T09:13:57.133Z",
+      "updatedAt": "2026-04-29T09:13:57.133Z"
+    }
+  },
+  "paymentsById": {
+    "c8448abc-98ea-4a90-97d9-3d9a6df9c6fd": {
+      "id": "c8448abc-98ea-4a90-97d9-3d9a6df9c6fd",
+      "linkId": "d8a5749f-dc6a-4b03-b9de-9fddd7644cb1",
+      "ownerId": "fddee0a0-2a7d-43c4-8fb8-c49f7749a45a",
+      "payer": {
+        "name": "Client A",
+        "email": "client@example.com"
+      },
+      "amount": 99,
+      "currency": "USD",
+      "status": "succeeded",
+      "createdAt": "2026-04-29T09:14:02.290Z"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+node_modules/
+.next/
+mord-demo-app/node_modules/
+mord-demo-app/.next/
