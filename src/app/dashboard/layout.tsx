@@ -1,25 +1,11 @@
-import { redirect } from "next/navigation";
+"use client";
 
-import { getUserFromSession } from "@/lib/auth";
-import { publicSafeUser } from "@/lib/demo-db";
+import DemoDashboardShell from "@/components/home/DemoDashboardShell";
 
-import DashboardShell from "@/components/dashboard/DashboardShell";
-
-export default async function DashboardLayout({
+export default function DashboardDemoLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await getUserFromSession();
-
-  if (!user) {
-    redirect("/auth/login");
-  }
-
-  if (!user.onboarded) {
-    redirect("/auth/onboarding");
-  }
-
-  return <DashboardShell user={publicSafeUser(user)}>{children}</DashboardShell>;
+  return <DemoDashboardShell>{children}</DemoDashboardShell>;
 }
-

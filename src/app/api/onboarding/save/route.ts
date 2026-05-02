@@ -67,6 +67,6 @@ export async function POST(req: Request) {
     user.onboarded = true;
   });
 
-  return NextResponse.json({ ok: true, redirectTo: "/dashboard" });
+  return NextResponse.json({ ok: true, redirectTo: "/account" });
 }
 

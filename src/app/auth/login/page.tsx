@@ -6,7 +6,7 @@ import LoginForm from "@/components/auth/LoginForm";
 export default async function LoginPage() {
   const user = await getUserFromSession();
   if (user) {
-    redirect(user.onboarded ? "/dashboard" : "/auth/onboarding");
+    redirect(user.onboarded ? "/account" : "/auth/onboarding");
   }
 
   return (

@@ -41,10 +41,10 @@ export default function DashboardShell({
   const pathname = usePathname();
 
   const nav: NavItem[] = [
-    { href: "/dashboard", label: "Overview", icon: <Settings className="h-4 w-4" /> },
-    { href: "/dashboard/store", label: "Store", icon: <Settings className="h-4 w-4" /> },
-    { href: "/dashboard/payouts", label: "Payouts", icon: <Wallet className="h-4 w-4" /> },
-    { href: "/dashboard/payment-links", label: "Payment Links", icon: <LinkIcon className="h-4 w-4" /> },
+    { href: "/account", label: "Overview", icon: <Settings className="h-4 w-4" /> },
+    { href: "/account/store", label: "Store", icon: <Settings className="h-4 w-4" /> },
+    { href: "/account/payouts", label: "Payouts", icon: <Wallet className="h-4 w-4" /> },
+    { href: "/account/payment-links", label: "Payment Links", icon: <LinkIcon className="h-4 w-4" /> },
   ];
 
   async function onLogout() {
@@ -87,7 +87,7 @@ export default function DashboardShell({
     <div className="min-h-screen bg-muted/20">
       <header className="border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3">
-          <Link href="/dashboard" className="flex items-center gap-2 font-semibold tracking-tight">
+          <Link href="/account" className="flex items-center gap-2 font-semibold tracking-tight">
             <Image
               src="/logo.png"
               alt="Lotus Pay logo"

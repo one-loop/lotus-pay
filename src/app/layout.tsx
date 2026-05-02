@@ -2,6 +2,8 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 
+import { Providers } from "./providers";
+
 export const metadata: Metadata = {
   title: "Lotus Pay",
   description: "Lotus Pay Merchant of Record demo platform",
@@ -19,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

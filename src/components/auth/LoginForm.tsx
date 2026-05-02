@@ -32,7 +32,7 @@ export default function LoginForm() {
       if (!res.ok) {
         throw new Error(data.error ?? "Could not sign in.");
       }
-      router.push(data.redirectTo ?? "/dashboard");
+      router.push(data.redirectTo ?? "/account");
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not sign in.");

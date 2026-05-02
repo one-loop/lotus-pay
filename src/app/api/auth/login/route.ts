@@ -41,7 +41,7 @@ export async function POST(req: Request) {
   });
 
   return NextResponse.json({
-    redirectTo: user.onboarded ? "/dashboard" : "/auth/onboarding",
+    redirectTo: user.onboarded ? "/account" : "/auth/onboarding",
   });
 }
 

@@ -24,12 +24,12 @@ export default function HomePage() {
           </Link>
 
           <nav className="hidden items-center gap-12 text-sm text-[#151515] md:flex">
-            <a href="#" className="hover:opacity-70">
+            <Link href="/" className="hover:opacity-70">
               Home
-            </a>
-            <a href="#" className="hover:opacity-70">
-              About Us
-            </a>
+            </Link>
+            <Link href="/dashboard" className="hover:opacity-70">
+              Dashboard
+            </Link>
             <a href="#" className="hover:opacity-70">
               Pricing
             </a>
@@ -40,7 +40,7 @@ export default function HomePage() {
             variant="ghost"
             className="rounded-full px-5 text-sm text-[#151515] hover:bg-black/5"
           >
-            <Link href="/auth/signup">Get Started</Link>
+            <Link href="/auth/start">Get Started</Link>
           </Button>
         </header>
 
@@ -58,14 +58,14 @@ export default function HomePage() {
                 asChild
                 className="h-11 min-w-[130px] rounded-full bg-white px-7 text-sm text-[#141414] hover:bg-white/90"
               >
-                <Link href="/auth/signup">Get Started</Link>
+                <Link href="/auth/start">Get Started</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="h-11 min-w-[100px] rounded-full border border-white/25 bg-white/50 px-7 text-sm text-white backdrop-blur-md hover:bg-white/25 hover:text-white"
               >
-                <Link href="/auth/login">Demo</Link>
+                <Link href="/auth/start">Demo</Link>
               </Button>
             </div>
           </div>
@@ -77,4 +77,3 @@ export default function HomePage() {
     </main>
   );
 }
-

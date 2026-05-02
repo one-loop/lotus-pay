@@ -6,7 +6,7 @@ import OnboardingForm from "@/components/auth/OnboardingForm";
 export default async function OnboardingPage() {
   const user = await getUserFromSession();
   if (!user) redirect("/auth/login");
-  if (user.onboarded) redirect("/dashboard");
+  if (user.onboarded) redirect("/account");
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">

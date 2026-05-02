@@ -62,7 +62,7 @@ export default function OnboardingForm({ initial }: Props) {
       if (!res.ok) {
         throw new Error(data.error ?? "Could not save onboarding.");
       }
-      router.push(data.redirectTo ?? "/dashboard");
+      router.push(data.redirectTo ?? "/account");
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not save onboarding.");

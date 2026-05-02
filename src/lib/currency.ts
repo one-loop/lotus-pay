@@ -1,9 +1,10 @@
-export type CurrencyCode = "USD" | "GBP" | "INR" | "EUR";
+export type CurrencyCode = "USD" | "GBP" | "INR" | "EUR" | "LKR";
 
 export type CountryCode =
   | "US"
   | "GB"
   | "IN"
+  | "LK"
   | "DE"
   | "FR";
 
@@ -11,6 +12,7 @@ const COUNTRY_TO_CURRENCY: Record<CountryCode, CurrencyCode> = {
   US: "USD",
   GB: "GBP",
   IN: "INR",
+  LK: "LKR",
   DE: "EUR",
   FR: "EUR",
 };
@@ -22,6 +24,7 @@ const CURRENCY_META: Record<
   USD: { code: "USD", symbol: "$", locale: "en-US" },
   GBP: { code: "GBP", symbol: "£", locale: "en-GB" },
   INR: { code: "INR", symbol: "₹", locale: "en-IN" },
+  LKR: { code: "LKR", symbol: "Rs", locale: "en-LK" },
   EUR: { code: "EUR", symbol: "€", locale: "de-DE" },
 };
 
@@ -44,13 +47,14 @@ export function formatMoney(amount: number, currency: CurrencyCode) {
 }
 
 export function isCountryCode(v: string): v is CountryCode {
-  return v === "US" || v === "GB" || v === "IN" || v === "DE" || v === "FR";
+  return v === "US" || v === "GB" || v === "IN" || v === "LK" || v === "DE" || v === "FR";
 }
 
 export const COUNTRY_OPTIONS: Array<{ code: CountryCode; name: string }> = [
   { code: "US", name: "United States" },
   { code: "GB", name: "United Kingdom" },
   { code: "IN", name: "India" },
+  { code: "LK", name: "Sri Lanka" },
   { code: "DE", name: "Germany" },
   { code: "FR", name: "France" },
 ];
