@@ -1,9 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
-import HomeGlobe from "@/components/home/HomeGlobe";
 import HeroStars from "@/components/home/HeroStars";
 import { Button } from "@/components/ui/button";
+
+/** three-globe touches `window` at module load — must not run during SSR/static generation */
+const HomeGlobe = dynamic(() => import("@/components/home/HomeGlobe"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[650px] w-[650px] lg:h-[850px] lg:w-[850px]" aria-hidden />
+  ),
+});
 
 export default function HomePage() {
   return (

@@ -207,7 +207,9 @@ function GlobeCore({ globeConfig, data }: WorldProps) {
 function WebGLRendererConfig() {
   const { gl, size } = useThree();
   useEffect(() => {
-    gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const dpr =
+      typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 2) : 1;
+    gl.setPixelRatio(dpr);
     gl.setSize(size.width, size.height);
     gl.setClearColor(0x000000, 0);
   }, [gl, size]);
