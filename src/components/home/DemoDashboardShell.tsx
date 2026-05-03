@@ -18,6 +18,7 @@ import {
   Search,
   Settings,
   Shield,
+  ShoppingBag,
   Store,
   User,
 } from "lucide-react";
@@ -75,22 +76,23 @@ function NavLinkRow({
   );
 }
 
-function NavRowButton({
-  icon: Icon,
-  label,
-}: {
-  icon: React.ElementType;
-  label: string;
-}) {
-  return (
-    <button
-      type="button"
-      className="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left text-sm text-foreground/80 transition-colors hover:bg-accent"
-    >
-      <Icon className="h-4 w-4 shrink-0 opacity-70" />
-      <span className="flex-1 truncate">{label}</span>
-    </button>
-  );
+function dashboardPageTitle(pathname: string): string {
+  const routes: Array<[string, string]> = [
+    ["/dashboard/products", "Products"],
+    ["/dashboard/payouts", "Payouts"],
+    ["/dashboard/get-started", "Get Started"],
+    ["/dashboard/verification", "Verification"],
+    ["/dashboard/sales", "Sales"],
+    ["/dashboard/transactions", "Transactions"],
+    ["/dashboard/storefront", "Storefront"],
+    ["/dashboard/developer", "Developer"],
+    ["/dashboard/support", "Support"],
+    ["/dashboard/settings", "Settings"],
+  ];
+  for (const [prefix, title] of routes) {
+    if (pathname === prefix || pathname.startsWith(`${prefix}/`)) return title;
+  }
+  return "Home";
 }
 
 export default function DemoDashboardShell({ children }: { children: React.ReactNode }) {
@@ -114,6 +116,20 @@ export default function DemoDashboardShell({ children }: { children: React.React
     pathname === "/dashboard/products" || pathname.startsWith("/dashboard/products/");
   const payoutsActive =
     pathname === "/dashboard/payouts" || pathname.startsWith("/dashboard/payouts/");
+  const getStartedActive =
+    pathname === "/dashboard/get-started" || pathname.startsWith("/dashboard/get-started/");
+  const verificationActive =
+    pathname === "/dashboard/verification" || pathname.startsWith("/dashboard/verification/");
+  const salesActive = pathname === "/dashboard/sales" || pathname.startsWith("/dashboard/sales/");
+  const transactionsActive =
+    pathname === "/dashboard/transactions" || pathname.startsWith("/dashboard/transactions/");
+  const storefrontActive =
+    pathname === "/dashboard/storefront" || pathname.startsWith("/dashboard/storefront/");
+  const developerActive =
+    pathname === "/dashboard/developer" || pathname.startsWith("/dashboard/developer/");
+  const supportActive = pathname === "/dashboard/support" || pathname.startsWith("/dashboard/support/");
+  const settingsActive =
+    pathname === "/dashboard/settings" || pathname.startsWith("/dashboard/settings/");
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -151,23 +167,38 @@ export default function DemoDashboardShell({ children }: { children: React.React
 
         <nav className="min-h-0 flex-1 space-y-4 overflow-y-auto px-2 py-2 overscroll-contain">
           <NavSection>
-            <NavRowButton icon={Rocket} label="Get Started" />
-            <NavRowButton icon={Shield} label="Verification" />
+            <NavLinkRow
+              href="/dashboard/get-started"
+              icon={Rocket}
+              label="Get Started"
+              active={getStartedActive}
+            />
+            <NavLinkRow
+              href="/dashboard/verification"
+              icon={Shield}
+              label="Verification"
+              active={verificationActive}
+            />
             <NavLinkRow href="/dashboard" icon={Home} label="Home" active={homeActive} />
           </NavSection>
           <Separator className="mx-1 bg-border" />
           <NavSection title="Products">
             <NavLinkRow href="/dashboard/products" icon={Package} label="Products" active={productsActive} />
-            <NavRowButton icon={Receipt} label="Sales" />
-            <NavRowButton icon={CreditCard} label="Transactions" />
+            <NavLinkRow href="/dashboard/sales" icon={ShoppingBag} label="Sales" active={salesActive} />
+            <NavLinkRow
+              href="/dashboard/transactions"
+              icon={CreditCard}
+              label="Transactions"
+              active={transactionsActive}
+            />
             <NavLinkRow href="/dashboard/payouts" icon={Receipt} label="Payouts" active={payoutsActive} />
-            <NavRowButton icon={Store} label="Storefront" />
+            <NavLinkRow href="/dashboard/storefront" icon={Store} label="Storefront" active={storefrontActive} />
           </NavSection>
           <Separator className="mx-1 bg-border" />
           <NavSection>
-            <NavRowButton icon={Code2} label="Developer" />
-            <NavRowButton icon={HelpCircle} label="Support" />
-            <NavRowButton icon={Settings} label="Settings" />
+            <NavLinkRow href="/dashboard/developer" icon={Code2} label="Developer" active={developerActive} />
+            <NavLinkRow href="/dashboard/support" icon={HelpCircle} label="Support" active={supportActive} />
+            <NavLinkRow href="/dashboard/settings" icon={Settings} label="Settings" active={settingsActive} />
           </NavSection>
         </nav>
 
@@ -202,11 +233,7 @@ export default function DemoDashboardShell({ children }: { children: React.React
       <div className="flex min-h-screen min-w-0 flex-col pl-60">
         <header className="sticky top-0 z-10 flex flex-wrap items-center gap-4 border-b border-border bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 sm:px-6">
           <h1 className="max-w-[200px] text-xl font-semibold tracking-tight sm:max-w-none sm:text-2xl">
-            {pathname.includes("/dashboard/products")
-              ? "Products"
-              : pathname.includes("/dashboard/payouts")
-                ? "Payouts"
-                : "Home"}
+            {dashboardPageTitle(pathname)}
           </h1>
           <div className="relative min-w-[200px] flex-1 sm:max-w-md">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
